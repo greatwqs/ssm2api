@@ -18,9 +18,10 @@ Apache Maven 3.3.3 + JDK 8 + MySQL 5.7 + Tomcat 8
 2. 国际化 i18n
 
 一些命令:
-mvn eclipse:eclipse   #初始化工程
-mvn dependency:sources  #下载Jar包源码
-mvn clean install -P develop  #本地打开发环境war包
-mvn clean install -P production  #本地打线上环境war包
+1. mvn eclipse:eclipse   #初始化工程
+2. mvn dependency:sources  #下载依赖Jar包源码
+3. mvn clean install -P develop  #本地打开发环境war包
+4. mvn clean install -P production  #本地打线上环境war包
+
 
 EMail联系方式: greatwqs#qq.com
