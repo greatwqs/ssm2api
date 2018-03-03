@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+         http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+         http://www.springframework.org/schema/context
+         http://www.springframework.org/schema/context/spring-context-3.0.xsd
+         http://www.springframework.org/schema/tx
+         http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+         http://www.springframework.org/schema/aop 
+         http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!-- 1. ssm2user, start -->
+	<bean id="dataSource_ssm2user" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<property name="driverClassName" value="${ssm2user.datasource.jdbc.driver}" />
+		<property name="url" value="${ssm2user.datasource.jdbc.url}" />
+		<property name="username" value="${ssm2user.datasource.jdbc.username}" />
+		<property name="password" value="${ssm2user.datasource.jdbc.password}" />
+		<property name="initialSize" value="${ssm2user.datasource.init.initial.size}" />
+		<property name="minIdle" value="${ssm2user.datasource.init.min.idle}" />
+		<property name="maxActive" value="${ssm2user.datasource.init.max.active}" />
+		<property name="maxWait" value="${ssm2user.datasource.max.wait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${ssm2user.datasource.time.between.millis}" />
+		<property name="minEvictableIdleTimeMillis" value="${ssm2user.datasource.min.idle.time}" />
+		<property name="validationQuery" value="SELECT 'x'" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<property name="poolPreparedStatements" value="false" />
+		<property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+	</bean>
+
+	<bean id="sqlSessionFactory_ssm2user" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource_ssm2user" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.greatwqs.ssm2api.dao.user" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory_ssm2user"/>
+	</bean>
+	
+	<bean id="sqlSessionTemplate_ssm2user" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
+		<constructor-arg index="0" ref="sqlSessionFactory_ssm2user" />
+	</bean>
+	<!-- 1. ssm2user, end -->
+	
+	<!-- 2. ssm2product, start -->
+	<bean id="dataSource_ssm2product" class="com.alibaba.druid.pool.DruidDataSource"
+		init-method="init" destroy-method="close">
+		<property name="driverClassName" value="${ssm2product.datasource.jdbc.driver}" />
+		<property name="url" value="${ssm2product.datasource.jdbc.url}" />
+		<property name="username" value="${ssm2product.datasource.jdbc.username}" />
+		<property name="password" value="${ssm2product.datasource.jdbc.password}" />
+		<property name="initialSize" value="${ssm2product.datasource.init.initial.size}" />
+		<property name="minIdle" value="${ssm2product.datasource.init.min.idle}" />
+		<property name="maxActive" value="${ssm2product.datasource.init.max.active}" />
+		<property name="maxWait" value="${ssm2product.datasource.max.wait}" />
+		<property name="timeBetweenEvictionRunsMillis" value="${ssm2product.datasource.time.between.millis}" />
+		<property name="minEvictableIdleTimeMillis" value="${ssm2product.datasource.min.idle.time}" />
+		<property name="validationQuery" value="SELECT 'x'" />
+		<property name="testWhileIdle" value="true" />
+		<property name="testOnBorrow" value="false" />
+		<property name="testOnReturn" value="false" />
+		<property name="poolPreparedStatements" value="false" />
+		<property name="maxPoolPreparedStatementPerConnectionSize" value="20" />
+	</bean>
+
+	<bean id="sqlSessionFactory_ssm2product" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource_ssm2product" />
+	</bean>
+
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="basePackage" value="com.greatwqs.ssm2api.dao.product" />
+		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory_ssm2product"/>
+	</bean>
+
+	<bean id="sqlSessionTemplate_ssm2product" class="org.mybatis.spring.SqlSessionTemplate" scope="prototype">
+		<constructor-arg index="0" ref="sqlSessionFactory_ssm2product" />
+	</bean>
+	<!-- 2. ssm2product, end -->
+</beans>

@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 
+	http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	
+	<!-- download sources: mvn dependency:sources  -->
+	<!-- mvn clean install -P develop -->
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>com.greatwqs</groupId>
+		<artifactId>ssm2api</artifactId>
+		<version>1.0.0-SNAPSHOT</version>
+	</parent>
+	
+	<artifactId>ssm2api-api</artifactId>
+	<packaging>war</packaging>
+	<name>ssm2api-api</name>
+	<url>http://maven.apache.org</url>
+	<build>
+	    <!-- war 包的名字 -->
+		<finalName>ssm2api</finalName>
+	</build>
+	
+	<dependencies>
+		<dependency>
+			<groupId>com.greatwqs</groupId>
+			<artifactId>ssm2api-service</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.greatwqs</groupId>
+			<artifactId>ssm2api-domain</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.greatwqs</groupId>
+			<artifactId>ssm2api-common</artifactId>
+			<version>1.0.0-SNAPSHOT</version>
+		</dependency>
+        <dependency>
+            <groupId>com.greatwqs</groupId>
+            <artifactId>ssm2api-dao</artifactId>
+            <version>1.0.0-SNAPSHOT</version>
+        </dependency>
+	</dependencies>
+</project>
