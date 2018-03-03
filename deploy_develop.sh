@@ -16,11 +16,11 @@ fi
 
 echo ">> pull source code from origin master branch..."
 cd $PROJECT_HOME
-git pull origin master
+git pull origin develop
 
 cd $PROJECT_HOME
 echo ">> mvn war..."
-$MAVEN_HOME/bin/mvn clean install -P production
+$MAVEN_HOME/bin/mvn clean install -P develop
 
 echo ">> stop tomcat..."
 # sh $TOMCAT_HOME/bin/shutdown.sh
