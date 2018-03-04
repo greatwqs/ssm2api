@@ -24,4 +24,4 @@ Apache Maven 3.3.3 + JDK 8 + MySQL 5.7 + Tomcat 8
 4. mvn clean install -P production  #本地打线上环境war包
 
 
-EMail联系方式: greatwqs#qq.com
+EMail联系方式: greatwqs#163.com
