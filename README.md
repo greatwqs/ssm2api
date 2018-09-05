@@ -1,4 +1,4 @@
-基于SpringMVC, Spring (Version 4.2.3) + MyBatis (Version 3.2.2) 的API应用
+﻿基于SpringMVC, Spring (Version 4.2.3) + MyBatis (Version 3.2.2) 的API应用
 适合APP后端接口, 小程序后端接口, 前后端分离的接口支持.
 
 开发环境:
@@ -22,6 +22,5 @@ Apache Maven 3.3.3 + JDK 8 + MySQL 5.7 + Tomcat 8
 2. mvn dependency:sources  #下载依赖Jar包源码
 3. mvn clean install -P develop  #本地打开发环境war包
 4. mvn clean install -P production  #本地打线上环境war包
-
 
 EMail联系方式: greatwqs#163.com
